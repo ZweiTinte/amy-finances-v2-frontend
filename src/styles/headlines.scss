@@ -1,0 +1,63 @@
+@import "_variables";
+@import "_headlineMixins";
+
+.headline {
+  @include headline;
+  height: 2.5rem;
+  width: 19rem;
+}
+
+.playerHeadline {
+  @include turnHeadline;
+}
+
+.opponentHeadline {
+  @include turnHeadline;
+  justify-content: right;
+}
+
+.infoboxHeadline {
+  @include bottomBorderHeadline;
+  height: 1.5rem;
+  width: 19rem;
+}
+
+.sidebarHeadline {
+  @include bottomBorderHeadline;
+  height: 1.5rem;
+  width: 14rem;
+}
+
+.sidebarSubHeadline {
+  @include headline;
+  border-top: 0.15rem solid $cardBorder;
+  margin-top: 0.5rem;
+  height: 1.5rem;
+  width: 14rem;
+}
+
+.sidebarDescription {
+  @include headline;
+  margin-top: 0rem;
+  height: 1.5rem;
+  width: 14rem;
+}
+
+.formHeadline {
+  @include flexCenter;
+  color: $white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.cardHeadline {
+  @include flexSpace;
+  color: $white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  border-bottom: 0.15rem solid $cardBorder;
+  margin-bottom: 2rem;
+  width: max-content;
+}

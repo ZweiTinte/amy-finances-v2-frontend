@@ -1,0 +1,65 @@
+@import "_variables";
+@import "_mixins";
+@import "_formMixins";
+
+.formLabel {
+  @include defaultFormLabel;
+  color: $white;
+}
+
+.formErrorLabel {
+  @include defaultFormLabel;
+  color: $red1;
+}
+
+.formRow {
+  @include defaultFormRow;
+  width: 28rem;
+}
+
+.deleteConfirmRow {
+  @include defaultFormRow;
+  width: 23rem;
+  align-items: flex-end;
+}
+
+.formRowDefault {
+  @include defaultFormRow;
+}
+
+.formRowSmall {
+  @include defaultFormRow;
+  width: 14rem;
+}
+
+input[type="button"] {
+  @include winStateColors;
+  @include winStateHover;
+  @include defaultInputElement;
+  width: 10rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+input[type="number"] {
+  @include inputField;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="text"] {
+  @include inputField;
+}
+
+input[type="date"] {
+  @include inputField;
+}
+
+.formCard {
+  @include cardObject;
+  width: 26rem;
+  border-radius: 0.4rem;
+  @include defaultCardBorder;
+  flex-direction: column;
+}

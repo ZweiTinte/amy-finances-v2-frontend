@@ -1,0 +1,97 @@
+@import "_variables";
+
+@mixin flexSpace {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin cardObject {
+  @include flexCenter;
+  margin: 0.5rem 0.5rem 0.5rem;
+  align-items: center;
+}
+
+@mixin winStateColors {
+  background-color: $green1 !important;
+  border-color: $green2 !important;
+}
+
+@mixin winStateHover {
+  &:hover {
+    color: $black !important;
+    @include winStateColors;
+  }
+}
+
+@mixin loseStateColors {
+  background-color: $red1 !important;
+  border-color: $red2 !important;
+}
+
+@mixin loseStateHover {
+  &:hover {
+    @include loseStateColors;
+  }
+}
+
+@mixin defaultHover {
+  &:hover {
+    background-color: $blue4;
+    color: $black;
+  }
+}
+
+@mixin bigButton {
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: 0.5rem;
+  height: min-content;
+}
+
+@mixin inputElement {
+  outline: none;
+  font-size: 1rem;
+  color: $white;
+  background-color: $buttonBackground;
+}
+
+@mixin defaultInputElement {
+  @include inputElement;
+  border-radius: 0.25rem;
+  border: 0.15rem solid $blue3;
+}
+
+@mixin defaultDropdownInput {
+  @include inputElement;
+  width: 10rem;
+  padding: 0.5rem;
+  height: auto !important;
+  font-size: auto !important;
+  border-radius: 0 !important;
+  line-height: 1rem !important;
+}
+
+@mixin sidebar {
+  position: fixed;
+  height: 100vh;
+  overflow-y: scroll;
+  width: 14rem;
+  top: 0;
+  background-color: $cardBackground;
+  padding: 1rem 1rem 0 1rem;
+}
+
+@mixin defaultFont {
+  font-size: 1rem;
+  color: $white;
+}
+
+@mixin defaultCardBorder {
+  border: 0.25rem solid $cardBorder;
+  background-color: $cardBackground;
+}

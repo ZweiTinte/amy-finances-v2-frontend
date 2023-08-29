@@ -1,0 +1,11 @@
+@import "_variables";
+@import "_mixins";
+
+@mixin defaultLink {
+  @include defaultInputElement;
+  justify-content: center;
+  max-height: 1.25rem;
+  display: inline-flex;
+  padding: 0.25rem;
+  text-decoration: none;
+}
