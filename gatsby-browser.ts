@@ -14,11 +14,12 @@ import "./src/styles/checkbox.scss";
 import "./src/styles/dateSelection.scss";
 import "./src/styles/overviewCards/overviews.scss";
 import "./src/styles/overviewCards/dividends.scss";
-
-import WrapRootElement from "./src/wrapRootElement";
+import { wrapRootElement } from "./gatsby-ssr";
 
 Date.prototype.toDateString = function (): string {
   return this.toISOString().split("T")[0];
 };
 
-export const wrapRootElement = WrapRootElement;
+export { wrapRootElement };
+
+export default {};
