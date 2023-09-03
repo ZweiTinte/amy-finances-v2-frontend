@@ -25,3 +25,7 @@ export function isLoggedIn(): boolean {
 export function logout(token = AUTH_TOKEN): void {
   Cookies.remove(token);
 }
+
+export function login(token: string, tokenName = AUTH_TOKEN): void {
+  Cookies.set(tokenName, token, { sameSite: "None" });
+}
