@@ -1,5 +1,5 @@
 import * as React from "react";
-import EditCategory from "../../components/template/categories/editCategory";
+import EditCategory from "../../../components/template/categories/editCategory";
 
 const CategoryEditPage = ({ params }: { params: { id: string } }) => {
   return (

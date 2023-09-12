@@ -1,6 +1,6 @@
 import * as React from "react";
-import CategoriesFetching from "../components/template/categoriesFetching";
-import CategoriesOverview from "../components/template/categories/categoriesOverview";
+import CategoriesFetching from "../../components/template/categoriesFetching";
+import CategoriesOverview from "../../components/template/categories/categoriesOverview";
 
 const CategoriesPage = () => {
   return (

@@ -1,6 +1,6 @@
 import * as React from "react";
-import Timetable from "../components/atoms/timetable";
-import FileUpload from "../components/atoms/fileUpload";
+import Timetable from "../../components/atoms/timetable";
+import FileUpload from "../../components/atoms/fileUpload";
 
 const TestPage = () => {
   const [image, setImage] = React.useState<File | null>(null);

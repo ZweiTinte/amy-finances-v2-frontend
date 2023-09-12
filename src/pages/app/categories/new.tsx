@@ -1,5 +1,5 @@
 import * as React from "react";
-import NewCategory from "../../components/template/categories/newCategory";
+import NewCategory from "../../../components/template/categories/newCategory";
 
 const CategoriesPage = () => {
   return (

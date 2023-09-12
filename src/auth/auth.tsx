@@ -27,5 +27,5 @@ export function logout(token = AUTH_TOKEN): void {
 }
 
 export function login(token: string, tokenName = AUTH_TOKEN): void {
-  Cookies.set(tokenName, token, { sameSite: "None" });
+  Cookies.set(tokenName, token, { sameSite: "None", secure: true, expires: 1 });
 }

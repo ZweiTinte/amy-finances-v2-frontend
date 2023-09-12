@@ -3,6 +3,11 @@ import { isLoggedIn } from "../auth/auth";
 import { navigate } from "gatsby";
 import SidebarLeft from "./template/sidebarLeft";
 import { RouteComponentProps } from "@gatsbyjs/reach-router";
+import TransactionFetching from "./template/transactionFetching";
+import OrdersFetching from "./template/ordersFetching";
+import StocksFetching from "./template/stocksFetching";
+import AccountsFetching from "./template/accountsFetching";
+import DividendsFetching from "./template/dividendsFetching";
 
 interface PrivateRouteProps extends RouteComponentProps {
   component: React.FC<any>;
@@ -29,7 +34,17 @@ export default function PrivateRoute({
       {isClient && (
         <>
           <SidebarLeft />
-          <Component data={data} />
+          <TransactionFetching>
+            <OrdersFetching>
+              <StocksFetching>
+                <AccountsFetching>
+                  <DividendsFetching>
+                    <Component data={data} />
+                  </DividendsFetching>
+                </AccountsFetching>
+              </StocksFetching>
+            </OrdersFetching>
+          </TransactionFetching>
         </>
       )}
     </>

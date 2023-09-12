@@ -6,35 +6,35 @@ const SidebarLeft = () => {
   return (
     <div className="sidebarLeft">
       <Headline text={"Menu"} style="sidebarHeadline" />
-      <LinkButton to="/accounts" text={"Accounts"} classes="sidebarLink" />
+      <LinkButton to="/app/accounts/" text={"Accounts"} classes="sidebarLink" />
       <LinkButton
         classes={"sidebarLink spaceUp"}
-        to={"/transactions"}
+        to={"/app/transactions/"}
         text={"Transactions"}
       />
       <LinkButton
         classes={"sidebarLink spaceUp"}
-        to={"/stocks"}
+        to={"/app/stocks/"}
         text={"Stocks"}
       />
       <LinkButton
         classes={"sidebarLink spaceUp"}
-        to={"/orders"}
+        to={"/app/orders/"}
         text={"Orders"}
       />
       <LinkButton
         classes={"sidebarLink spaceUp"}
-        to={"/dividends"}
+        to={"/app/dividends/"}
         text={"Dividends"}
       />
       <LinkButton
         classes={"sidebarLink spaceUp"}
-        to={"/categories"}
+        to={"/app/categories/"}
         text={"Categories"}
       />
       <LinkButton
         classes={"sidebarLink spaceUp"}
-        to={"/statistics"}
+        to={"/app/statistics/"}
         text={"Statistics"}
       />
     </div>

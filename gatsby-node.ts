@@ -9,4 +9,8 @@ exports.onCreatePage = async ({
     page.matchPath = "/app/*";
     actions.createPage(page);
   }
+  if (page.path.match(/^\/app\/dividends/)) {
+    page.matchPath = "/app/dividends/:id";
+    actions.createPage(page);
+  }
 };

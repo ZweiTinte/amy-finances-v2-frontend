@@ -1,13 +1,16 @@
 import * as React from "react";
 import StocksFetching from "../../components/template/stocksFetching";
+import DividendsFetching from "../../components/template/dividendsFetching";
 import AccountsFetching from "../../components/template/accountsFetching";
-import DividendForms from "../../components/template/dividends/dividendForms";
+import DividendsOverview from "../../components/template/dividends/dividendsOverview";
 
 const DividendsPage = () => {
   return (
     <AccountsFetching>
       <StocksFetching>
-        <DividendForms />
+        <DividendsFetching>
+          <DividendsOverview />
+        </DividendsFetching>
       </StocksFetching>
     </AccountsFetching>
   );

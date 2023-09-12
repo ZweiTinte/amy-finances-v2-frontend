@@ -1,7 +1,7 @@
 import * as React from "react";
-import StocksFetching from "../../components/template/stocksFetching";
-import OrderForms from "../../components/template/orders/orderForms";
-import AccountsFetching from "../../components/template/accountsFetching";
+import StocksFetching from "../../../components/template/stocksFetching";
+import OrderForms from "../../../components/template/orders/orderForms";
+import AccountsFetching from "../../../components/template/accountsFetching";
 
 const OrdersPage = ({ params }: { params: { id: string } }) => {
   return (

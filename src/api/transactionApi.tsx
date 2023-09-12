@@ -1,6 +1,7 @@
 import axios from "axios";
 import { resolveTransactionFetching } from "../helpers/transactionsHelper";
 import { DropdownItem } from "../dropdownTypes";
+import { getJWT } from "../auth/auth";
 
 export function postTransaction(
   resolvePost: () => void,
@@ -89,7 +90,12 @@ export async function fetchTransactions(
   resolveFetching: (data: Transaction[]) => void,
   handleError: (error: Error) => void
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}transactions`)
+  await fetch(`${process.env.GATSBY_API_URL}transactions`, {
+    mode: "cors",
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })
