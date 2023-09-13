@@ -8,7 +8,11 @@ export function postTransaction(
   transaction: Transaction
 ): void {
   axios
-    .post(`${process.env.GATSBY_API_URL}transactions`, transaction)
+    .post(`${process.env.GATSBY_API_URL}transactions`, transaction, {
+      headers: {
+        Authentication: `Bearer ${getJWT()}`,
+      },
+    })
     .then(() => {
       resolvePost();
     })
@@ -20,7 +24,11 @@ export function deleteTransaction(
   transactionId: string
 ): void {
   axios
-    .delete(`${process.env.GATSBY_API_URL}transactions/${transactionId}`)
+    .delete(`${process.env.GATSBY_API_URL}transactions/${transactionId}`, {
+      headers: {
+        Authentication: `Bearer ${getJWT()}`,
+      },
+    })
     .then(() => {
       resolveUpdate();
     })
@@ -46,7 +54,11 @@ export function fetchTransaction(
   categories: DropdownItem[]
 ): void {
   axios
-    .get(`${process.env.GATSBY_API_URL}transactions/${transactionId}`)
+    .get(`${process.env.GATSBY_API_URL}transactions/${transactionId}`, {
+      headers: {
+        Authentication: `Bearer ${getJWT()}`,
+      },
+    })
     .then((res) => {
       resolveTransactionFetching(
         res.data,
@@ -78,7 +90,12 @@ export function updateTransactions(
   axios
     .put(
       `${process.env.GATSBY_API_URL}transactions/${transaction.id}`,
-      transaction
+      transaction,
+      {
+        headers: {
+          Authentication: `Bearer ${getJWT()}`,
+        },
+      }
     )
     .then(() => {
       resolveUpdate();
@@ -91,7 +108,6 @@ export async function fetchTransactions(
   handleError: (error: Error) => void
 ): Promise<void> {
   await fetch(`${process.env.GATSBY_API_URL}transactions`, {
-    mode: "cors",
     headers: {
       Authentication: `Bearer ${getJWT()}`,
     },

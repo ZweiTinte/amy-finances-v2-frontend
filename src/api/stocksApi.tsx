@@ -1,8 +1,14 @@
+import { getJWT } from "../auth/auth";
+
 export async function fetchStocks(
   resolveFetching: (data: Stock[]) => void,
   handleError: (error: Error) => void
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}stocks`)
+  await fetch(`${process.env.GATSBY_API_URL}stocks`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })
@@ -21,6 +27,7 @@ export async function postStock(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       isin: isin,
@@ -45,6 +52,7 @@ export async function deleteStock(
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
   })
     .then(async (res) => {
@@ -67,6 +75,7 @@ export async function updateStock(
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       isin: isin,
@@ -88,7 +97,11 @@ export async function fetchStock(
   handleError: (error: Error) => void,
   stockId: string
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}stocks/${stockId}`)
+  await fetch(`${process.env.GATSBY_API_URL}stocks/${stockId}`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })

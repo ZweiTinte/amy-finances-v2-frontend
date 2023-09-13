@@ -1,8 +1,14 @@
+import { getJWT } from "../auth/auth";
+
 export async function fetchDividends(
   resolveFetching: (data: Dividend[]) => void,
   handleError: (error: Error) => void
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}dividends`)
+  await fetch(`${process.env.GATSBY_API_URL}dividends`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })
@@ -22,6 +28,7 @@ export async function postDividend(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       payDate: payDate,
@@ -46,6 +53,7 @@ export async function deleteDividend(
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
   })
     .then(async (res) => {
@@ -68,6 +76,7 @@ export async function updateDividend(
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       payDate: payDate,
@@ -89,7 +98,11 @@ export async function fetchDividend(
   handleError: (error: Error) => void,
   dividendId: string
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}dividends/${dividendId}`)
+  await fetch(`${process.env.GATSBY_API_URL}dividends/${dividendId}`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })

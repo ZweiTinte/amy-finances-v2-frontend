@@ -1,8 +1,14 @@
+import { getJWT } from "../auth/auth";
+
 export async function fetchOrders(
   resolveFetching: (data: Order[]) => void,
   handleError: (error: Error) => void
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}orders`)
+  await fetch(`${process.env.GATSBY_API_URL}orders`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })
@@ -14,7 +20,11 @@ export async function fetchOrder(
   handleError: (error: Error) => void,
   id: string
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}orders/${id}`)
+  await fetch(`${process.env.GATSBY_API_URL}orders/${id}`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })
@@ -29,6 +39,7 @@ export async function postOrder(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       date: order.date,
@@ -56,6 +67,7 @@ export async function updateOrder(
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       date: order.date,
@@ -83,6 +95,7 @@ export async function deleteOrder(
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
   })
     .then(async (res) => {

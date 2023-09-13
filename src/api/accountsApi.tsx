@@ -1,9 +1,15 @@
+import { getJWT } from "../auth/auth";
+
 export async function fetchAccount(
   resolveFetching: (data: Account) => void,
   handleError: (error: Error) => void,
   accountId: string
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}accounts/${accountId}`)
+  await fetch(`${process.env.GATSBY_API_URL}accounts/${accountId}`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })
@@ -21,6 +27,7 @@ export async function updateAccount(
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       name: name,
@@ -39,7 +46,11 @@ export async function fetchAccounts(
   resolveFetching: (data: Account[]) => void,
   handleError: (error: Error) => void
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}accounts`)
+  await fetch(`${process.env.GATSBY_API_URL}accounts`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })
@@ -54,6 +65,7 @@ export async function deleteAccount(
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
   })
     .then(async (res) => {
@@ -73,6 +85,7 @@ export async function postAccount(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       iban: iban,

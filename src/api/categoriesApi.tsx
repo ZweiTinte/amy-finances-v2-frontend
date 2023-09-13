@@ -1,8 +1,14 @@
+import { getJWT } from "../auth/auth";
+
 export async function fetchCategories(
   resolveFetching: (data: Category[]) => void,
   handleError: (error: Error) => void
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}categories`)
+  await fetch(`${process.env.GATSBY_API_URL}categories`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })
@@ -18,6 +24,7 @@ export async function postCategory(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       name: name,
@@ -38,6 +45,7 @@ export async function deleteCategory(
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
   })
     .then(async (res) => {
@@ -56,6 +64,7 @@ export async function updateCategory(
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
+      Authentication: `Bearer ${getJWT()}`,
     },
     body: JSON.stringify({
       name: name,
@@ -73,7 +82,11 @@ export async function fetchCategory(
   handleError: (error: Error) => void,
   categoryId: string
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}categories/${categoryId}`)
+  await fetch(`${process.env.GATSBY_API_URL}categories/${categoryId}`, {
+    headers: {
+      Authentication: `Bearer ${getJWT()}`,
+    },
+  })
     .then(async (res) => {
       await res.json().then(resolveFetching).catch(handleError);
     })
