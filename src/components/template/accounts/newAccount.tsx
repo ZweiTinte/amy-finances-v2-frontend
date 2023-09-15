@@ -20,7 +20,7 @@ const NewAccount = () => {
   const [error, setError] = React.useState<string>("");
 
   function resolveFetching(): void {
-    navigate("/accounts");
+    navigate("/app/accounts");
   }
 
   function addNewAccount(): void {

@@ -26,7 +26,7 @@ const EditStock = ({ id }: { id: string }) => {
   }
 
   function resolveUpdate(): void {
-    navigate("/stocks");
+    navigate("/app/stocks");
   }
 
   function updateStockItem(): void {

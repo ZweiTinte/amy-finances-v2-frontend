@@ -36,7 +36,7 @@ const EditTransaction = ({
   };
 
   function resolveUpdate(): void {
-    navigate("/transactions");
+    navigate("/app/transactions");
   }
 
   function updateTransaction(): void {

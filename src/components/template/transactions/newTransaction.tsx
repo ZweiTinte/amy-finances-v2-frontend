@@ -31,7 +31,7 @@ const NewTransaction = ({
   const [to, setTo] = React.useState<DropdownItem>(emptyAccountDDItem);
 
   function resolvePost(): void {
-    navigate("/transactions");
+    navigate("/app/transactions");
   }
 
   function addNewTransaction(): void {

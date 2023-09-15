@@ -23,7 +23,7 @@ export async function postStock(
   link: string,
   watchlisted: boolean
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}stocks`, {
+  await fetch(`${process.env.GATSBY_API_URL}stocks/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

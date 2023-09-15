@@ -20,7 +20,7 @@ export async function postCategory(
   name: string,
   type: number
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}categories`, {
+  await fetch(`${process.env.GATSBY_API_URL}categories/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

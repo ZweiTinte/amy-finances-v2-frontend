@@ -27,7 +27,7 @@ const NewOrder = ({
   const [to, setTo] = React.useState<DropdownItem>(accounts[0]);
 
   function resolvePost(): void {
-    navigate("/orders");
+    navigate("/app/orders");
   }
 
   function addNewOrder(): void {

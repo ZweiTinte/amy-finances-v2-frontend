@@ -81,7 +81,7 @@ export async function postAccount(
   balance: string,
   accountType: string
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}accounts`, {
+  await fetch(`${process.env.GATSBY_API_URL}accounts/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

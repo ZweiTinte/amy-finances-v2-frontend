@@ -28,7 +28,7 @@ const EditCategory = ({ id }: { id: string }) => {
   }
 
   function resolveUpdate(): void {
-    navigate("/categories");
+    navigate("/app/categories");
   }
 
   function updateCategoryItem(): void {

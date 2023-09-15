@@ -24,7 +24,7 @@ export async function postDividend(
   stock: number,
   toAccount: number
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}dividends`, {
+  await fetch(`${process.env.GATSBY_API_URL}dividends/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

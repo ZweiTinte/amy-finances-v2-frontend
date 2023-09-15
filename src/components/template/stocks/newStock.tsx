@@ -12,7 +12,7 @@ const NewStock = () => {
   const [watchlisted, setWatchlisted] = React.useState<boolean>(false);
 
   function resolvePost(): void {
-    navigate("/stocks");
+    navigate("/app/stocks");
   }
 
   function addNewStock(): void {

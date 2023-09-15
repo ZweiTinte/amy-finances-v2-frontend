@@ -35,7 +35,7 @@ export async function postOrder(
   resolvePost: () => void,
   order: Order
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}orders`, {
+  await fetch(`${process.env.GATSBY_API_URL}orders/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

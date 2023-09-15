@@ -27,7 +27,7 @@ const EditDividend = ({
   };
 
   function resolveUpdate(): void {
-    navigate("/dividends");
+    navigate("/app/dividends");
   }
 
   function editDividend(): void {

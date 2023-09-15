@@ -24,7 +24,7 @@ const NewDividend = ({
   const [to, setTo] = React.useState<DropdownItem>(accounts[0]);
 
   function resolvePost(): void {
-    navigate("/dividends");
+    navigate("/app/dividends");
   }
 
   function addNewDividend(): void {

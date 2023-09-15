@@ -23,7 +23,7 @@ const Dividends = ({
           <div className="overviewCard">
             <div className="formRowDefault">
               <Headline text="Dividends Overview" style="cardHeadline" />
-              <LinkButton to="/dividends/new" title="add new dividend">
+              <LinkButton to="/app/dividends/new" title="add new dividend">
                 <PlusIcon className="heroIcon" />
               </LinkButton>
             </div>

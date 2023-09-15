@@ -32,7 +32,7 @@ const EditAccount = ({ id }: { id: string }) => {
   }
 
   function resolveUpdate(): void {
-    navigate("/accounts");
+    navigate("/app/accounts");
   }
 
   function updateAccountItem(): void {

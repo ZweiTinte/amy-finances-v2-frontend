@@ -11,7 +11,7 @@ const NewCategory = () => {
   const [name, setName] = React.useState<string>("");
 
   function resolvePost(): void {
-    navigate("/categories");
+    navigate("/app/categories");
   }
 
   function addNewCategory(): void {

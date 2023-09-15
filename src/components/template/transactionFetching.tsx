@@ -15,7 +15,6 @@ const TransactionFetching = ({
   categories?: Category[];
   accountsDropdown?: DropdownItem[];
 }) => {
-  console.log("fetching");
   const [transactionsReady, setTransactionsReady] =
     React.useState<boolean>(false);
   const [transactions, setTransactions] = React.useState<Transaction[]>([]);

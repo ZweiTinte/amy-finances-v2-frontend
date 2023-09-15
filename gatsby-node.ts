@@ -5,12 +5,14 @@ exports.onCreatePage = async ({
   page: any;
   actions: any;
 }) => {
-  if (page.path.match(/^\/app/)) {
-    page.matchPath = "/app/*";
-    actions.createPage(page);
-  }
   if (page.path.match(/^\/app\/dividends/)) {
-    page.matchPath = "/app/dividends/:id";
+    page.matchPath = "/app/dividends/*";
+    actions.createPage(page);
+  } else if (page.path.match(/^\/app\/accounts\/$/)) {
+    page.matchPath = "/app/accounts/*";
+    actions.createPage(page);
+  } else if (page.path.match(/^\/app/)) {
+    page.matchPath = "/app/*";
     actions.createPage(page);
   }
 };

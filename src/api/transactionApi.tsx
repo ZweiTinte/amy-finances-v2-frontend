@@ -8,7 +8,7 @@ export function postTransaction(
   transaction: Transaction
 ): void {
   axios
-    .post(`${process.env.GATSBY_API_URL}transactions`, transaction, {
+    .post(`${process.env.GATSBY_API_URL}transactions/`, transaction, {
       headers: {
         Authentication: `Bearer ${getJWT()}`,
       },

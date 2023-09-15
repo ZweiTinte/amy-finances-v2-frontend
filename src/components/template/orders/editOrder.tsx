@@ -32,7 +32,7 @@ const EditOrder = ({
   };
 
   function resolveUpdate(): void {
-    navigate("/orders");
+    navigate("/app/orders");
   }
 
   function editOrder(): void {

@@ -24,7 +24,10 @@ const Transactions = ({
           <div className="overviewCard">
             <div className="formRowDefault">
               <Headline text="Transactions Overview" style="cardHeadline" />
-              <LinkButton to="/transactions/new" title="add new transaction">
+              <LinkButton
+                to="/app/transactions/new"
+                title="add new transaction"
+              >
                 <PlusIcon className="heroIcon" />
               </LinkButton>
             </div>
