@@ -8,6 +8,7 @@ import OrdersFetching from "./template/ordersFetching";
 import StocksFetching from "./template/stocksFetching";
 import AccountsFetching from "./template/accountsFetching";
 import DividendsFetching from "./template/dividendsFetching";
+import CategoriesFetching from "./template/categoriesFetching";
 
 interface PrivateRouteProps extends RouteComponentProps {
   component: React.FC<any>;
@@ -39,7 +40,9 @@ export default function PrivateRoute({
               <StocksFetching>
                 <AccountsFetching>
                   <DividendsFetching>
-                    <Component data={data} />
+                    <CategoriesFetching>
+                      <Component data={data} />
+                    </CategoriesFetching>
                   </DividendsFetching>
                 </AccountsFetching>
               </StocksFetching>

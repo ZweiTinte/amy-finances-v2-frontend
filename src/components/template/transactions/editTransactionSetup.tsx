@@ -5,8 +5,10 @@ import EditTransactionFetching from "../../../components/template/transactions/e
 import { fetchAccounts } from "../../../api/accountsApi";
 import { DropdownItem } from "../../../dropdownTypes";
 import CategoriesFetching from "../../../components/template/categoriesFetching";
+import { useParams } from "@gatsbyjs/reach-router";
 
-const TransactionEditPage = ({ params }: { params: { id: string } }) => {
+const TransactionEditSetup = () => {
+  const { id } = useParams();
   const [accounts, setAccounts] = React.useState<DropdownItem[]>([]);
   const [accountsReady, setAccountsReady] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
@@ -41,7 +43,7 @@ const TransactionEditPage = ({ params }: { params: { id: string } }) => {
     <>
       {accountsReady && (
         <CategoriesFetching accountsDropdown={accounts}>
-          <EditTransactionFetching id={params.id} />
+          <EditTransactionFetching id={id} />
         </CategoriesFetching>
       )}
       {error && <ErrorInfo message={errorMessage} tryAgain={loadAccounts} />}
@@ -49,4 +51,4 @@ const TransactionEditPage = ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default TransactionEditPage;
+export default TransactionEditSetup;

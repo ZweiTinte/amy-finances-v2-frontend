@@ -10,8 +10,10 @@ import {
 import CategoryForm from "../../level2/categoryForm";
 import { DropdownItem } from "../../../dropdownTypes";
 import { getCategoryDDItem } from "../../../helpers/helpers";
+import { useParams } from "@gatsbyjs/reach-router";
 
-const EditCategory = ({ id }: { id: string }) => {
+const EditCategory = () => {
+  const { id } = useParams();
   const [templateReady, setTemplateReady] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   const [errorMessage, setErrorMessage] = React.useState<string>("");
@@ -41,9 +43,13 @@ const EditCategory = ({ id }: { id: string }) => {
   };
 
   function resolveFetching(data: Category): void {
-    setName(data.name);
-    setType(getCategoryDDItem(data.type));
-    setTemplateReady(true);
+    if (data.name !== undefined) {
+      setName(data.name);
+      setType(getCategoryDDItem(data.type));
+      setTemplateReady(true);
+    } else {
+      navigate("/app/categories");
+    }
   }
 
   function loadCategory(): void {

@@ -6,6 +6,7 @@ import { fetchOrder } from "../../../api/ordersApi";
 import { getStockDDItems } from "../../../helpers/stocksHelper";
 import { getAccountDDItem } from "../../../helpers/accountsHelper";
 import { DropdownItem } from "../../../dropdownTypes";
+import { navigate } from "gatsby";
 
 const EditOrderFetching = ({
   stocks,
@@ -36,15 +37,19 @@ const EditOrderFetching = ({
   }
 
   function resolveFetching(data: Order): void {
-    setDate(data.date);
-    setOrderType(getOrderType(data.orderType));
-    setStock(getStockDDItems(data.stock, stocks)[0]);
-    setAmount(data.amount.toString());
-    setPrice(data.price.toString());
-    setCost(data.cost.toString());
-    setFrom(getAccountDDItem(data.from, accounts));
-    setTo(getAccountDDItem(data.to, accounts));
-    setOrderReady(true);
+    if (data.date !== undefined) {
+      setDate(data.date);
+      setOrderType(getOrderType(data.orderType));
+      setStock(getStockDDItems(data.stock, stocks)[0]);
+      setAmount(data.amount.toString());
+      setPrice(data.price.toString());
+      setCost(data.cost.toString());
+      setFrom(getAccountDDItem(data.from, accounts));
+      setTo(getAccountDDItem(data.to, accounts));
+      setOrderReady(true);
+    } else {
+      navigate("/app/orders");
+    }
   }
 
   function loadOrder(): void {

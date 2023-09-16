@@ -9,9 +9,9 @@ import { EditTransactionFetchingProps } from "../../../transactionTypes";
 import { getCategory } from "../../../helpers/transactionsHelper";
 
 const EditTransactionFetching = ({
-  id,
   accountsDropdown,
   categoriesDropdown,
+  id,
 }: EditTransactionFetchingProps) => {
   const [transactionReady, setTransactionReady] =
     React.useState<boolean>(false);

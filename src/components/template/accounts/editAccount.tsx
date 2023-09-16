@@ -47,14 +47,18 @@ const EditAccount = () => {
   };
 
   function resolveFetching(data: Account): void {
-    setName(data.name);
-    setAccountType(
-      accountTypes.filter((type) => {
-        return type.value === data.accountType;
-      })[0]
-    );
-    setAccount(data);
-    setTemplateReady(true);
+    if (data.name !== undefined) {
+      setName(data.name);
+      setAccountType(
+        accountTypes.filter((type) => {
+          return type.value === data.accountType;
+        })[0]
+      );
+      setAccount(data);
+      setTemplateReady(true);
+    } else {
+      navigate("/app/accounts");
+    }
   }
 
   function loadAccount(): void {

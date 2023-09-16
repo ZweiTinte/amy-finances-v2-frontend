@@ -54,7 +54,7 @@ export interface TransactionSidebarContentProps {
 }
 
 export interface EditTransactionFetchingProps {
-  id: string;
   accountsDropdown?: DropdownItem[];
   categoriesDropdown?: DropdownItem[];
+  id: string;
 }

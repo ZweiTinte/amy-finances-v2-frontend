@@ -56,7 +56,7 @@ export async function deleteStock(
     },
   })
     .then(async (res) => {
-      await res.json().then(resolveUpdate).catch();
+      resolveUpdate();
     })
     .catch();
 }

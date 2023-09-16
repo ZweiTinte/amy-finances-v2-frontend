@@ -57,7 +57,7 @@ export async function deleteDividend(
     },
   })
     .then(async (res) => {
-      await res.json().then(resolveUpdate).catch();
+      resolveUpdate();
     })
     .catch();
 }

@@ -4,8 +4,10 @@ import Headline from "../../atoms/headline";
 import ErrorInfo from "../../level1/errorInfo";
 import { deleteStock, fetchStock, updateStock } from "../../../api/stocksApi";
 import StockForm from "../../level2/stockForm";
+import { useParams } from "@gatsbyjs/reach-router";
 
-const EditStock = ({ id }: { id: string }) => {
+const EditStock = () => {
+  const { id } = useParams();
   const [templateReady, setTemplateReady] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   const [errorMessage, setErrorMessage] = React.useState<string>("");
@@ -48,13 +50,17 @@ const EditStock = ({ id }: { id: string }) => {
   };
 
   function resolveFetching(data: Stock): void {
-    setName(data.name);
-    setIsin(data.isin);
-    setPrice(data.price.toString());
-    setAmount(data.amount.toString());
-    setTemplateReady(true);
-    setLink(data.link || "");
-    setWatchlisted(data.watchlisted || false);
+    if (data.name !== undefined) {
+      setName(data.name);
+      setIsin(data.isin);
+      setPrice(data.price.toString());
+      setAmount(data.amount.toString());
+      setTemplateReady(true);
+      setLink(data.link || "");
+      setWatchlisted(data.watchlisted || false);
+    } else {
+      navigate("/app/stocks");
+    }
   }
 
   function loadStock(): void {

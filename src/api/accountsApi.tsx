@@ -69,7 +69,7 @@ export async function deleteAccount(
     },
   })
     .then(async (res) => {
-      await res.json().then(resolveUpdate).catch();
+      resolveUpdate();
     })
     .catch();
 }

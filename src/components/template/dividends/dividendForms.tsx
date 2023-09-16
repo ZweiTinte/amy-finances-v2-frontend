@@ -1,16 +1,16 @@
 import * as React from "react";
 import NewDividend from "./newDividend";
 import EditDividendFetching from "./editDividendFetching";
+import { useParams } from "@gatsbyjs/reach-router";
 
 const DividendForms = ({
   stocks,
   accounts,
-  id,
 }: {
   stocks?: Stock[];
   accounts?: Account[];
-  id?: string;
 }) => {
+  const { id } = useParams();
   return (
     <>
       {accounts && stocks && (

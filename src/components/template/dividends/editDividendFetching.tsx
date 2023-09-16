@@ -5,6 +5,7 @@ import { getStockDDItems } from "../../../helpers/stocksHelper";
 import { getAccountDDItem } from "../../../helpers/accountsHelper";
 import EditDividend from "./editDividend";
 import { DropdownItem } from "../../../dropdownTypes";
+import { navigate } from "gatsby";
 
 const EditDividendFetching = ({
   stocks,
@@ -33,13 +34,17 @@ const EditDividendFetching = ({
   }
 
   function resolveFetching(data: Dividend): void {
-    setPayDate(data.payDate);
-    setExDate(data.exDate);
-    setStock(getStockDDItems(data.stock, stocks)[0]);
-    setAmountBeforeTax(data.amountBeforeTax.toString());
-    setTaxAmount(data.taxAmount.toString());
-    setTo(getAccountDDItem(data.toAccount, accounts));
-    setDividendReady(true);
+    if (data.payDate !== undefined) {
+      setPayDate(data.payDate);
+      setExDate(data.exDate);
+      setStock(getStockDDItems(data.stock, stocks)[0]);
+      setAmountBeforeTax(data.amountBeforeTax.toString());
+      setTaxAmount(data.taxAmount.toString());
+      setTo(getAccountDDItem(data.toAccount, accounts));
+      setDividendReady(true);
+    } else {
+      navigate("/app/dividends");
+    }
   }
 
   function loadDividend(): void {

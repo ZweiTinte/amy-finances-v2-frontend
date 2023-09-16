@@ -1,16 +1,16 @@
 import * as React from "react";
 import NewOrder from "./newOrder";
 import EditOrderFetching from "./editOrderFetching";
+import { useParams } from "@gatsbyjs/reach-router";
 
 const OrderForms = ({
   stocks,
   accounts,
-  id,
 }: {
   stocks?: Stock[];
   accounts?: Account[];
-  id?: string;
 }) => {
+  const { id } = useParams();
   return (
     <>
       {accounts && stocks && (

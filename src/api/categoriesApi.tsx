@@ -49,7 +49,7 @@ export async function deleteCategory(
     },
   })
     .then(async (res) => {
-      await res.json().then(resolveUpdate).catch();
+      resolveUpdate();
     })
     .catch();
 }
