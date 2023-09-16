@@ -6,6 +6,7 @@ import Accounts from "../components/template/accounts/accounts";
 import PrivateRoute from "../components/privateRoute";
 import NotFoundPage from "./notFound";
 import NewAccount from "../components/template/accounts/newAccount";
+import EditAccount from "../components/template/accounts/editAccount";
 
 export default function App() {
   const [isClient, setIsClient] = useState(false);
@@ -20,6 +21,7 @@ export default function App() {
         <Router>
           <PrivateRoute path="/app/accounts" component={Accounts} />
           <PrivateRoute path="/app/accounts/new" component={NewAccount} />
+          <PrivateRoute path="/app/accounts/:id" component={EditAccount} />
           {!isLoggedIn() && <IndexPage path="/" />}
           <NotFoundPage default />
         </Router>

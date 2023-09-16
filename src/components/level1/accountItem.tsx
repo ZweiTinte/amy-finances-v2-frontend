@@ -8,6 +8,7 @@ interface AccountProps {
 }
 
 const AccountItem = ({ account }: AccountProps) => {
+  console.log(account.id);
   return (
     <>
       <span className="accountIban">{account.iban}</span>
@@ -17,7 +18,7 @@ const AccountItem = ({ account }: AccountProps) => {
         {euroFormat.format(account.balance)}
       </span>
       <span>
-        <LinkButton to={`/accounts/${account.id}`} title="edit">
+        <LinkButton to={`/app/accounts/${account.id}`} title="edit">
           <PencilIcon className="heroIcon" />
         </LinkButton>
       </span>

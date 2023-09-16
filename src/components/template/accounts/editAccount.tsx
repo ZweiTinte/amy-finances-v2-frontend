@@ -10,8 +10,10 @@ import ErrorInfo from "../../level1/errorInfo";
 import { accountTypes } from "../../../helpers/accountsHelper";
 import AccountForm from "../../level2/accountForm";
 import { DropdownItem } from "../../../dropdownTypes";
+import { useParams } from "@gatsbyjs/reach-router";
 
-const EditAccount = ({ id }: { id: string }) => {
+const EditAccount = () => {
+  const { id } = useParams();
   const accountId = id;
   const [templateReady, setTemplateReady] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);

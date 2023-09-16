@@ -71,7 +71,7 @@ export async function updateStock(
   link: string,
   watchlisted: boolean
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}stocks/${stockId}`, {
+  await fetch(`${process.env.GATSBY_API_URL}stocks/${stockId}/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

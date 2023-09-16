@@ -63,7 +63,7 @@ export async function updateOrder(
   resolveUpdate: () => void,
   order: Order
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}orders/${order.id}`, {
+  await fetch(`${process.env.GATSBY_API_URL}orders/${order.id}/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

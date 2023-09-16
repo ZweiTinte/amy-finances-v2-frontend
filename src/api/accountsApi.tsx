@@ -23,7 +23,7 @@ export async function updateAccount(
   name: string,
   accountType: string
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}accounts/${accountId}`, {
+  await fetch(`${process.env.GATSBY_API_URL}accounts/${accountId}/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

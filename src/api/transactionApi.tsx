@@ -89,7 +89,7 @@ export function updateTransactions(
 ): void {
   axios
     .put(
-      `${process.env.GATSBY_API_URL}transactions/${transaction.id}`,
+      `${process.env.GATSBY_API_URL}transactions/${transaction.id}/`,
       transaction,
       {
         headers: {

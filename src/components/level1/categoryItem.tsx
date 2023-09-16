@@ -16,7 +16,7 @@ const CategoryItem = ({ category }: CategoryProps) => {
       <span className="overviewCategory">{category.name}</span>
       <span className="categoryType">{categoryType}</span>
       <span>
-        <LinkButton to={`/categories/${category.id}`} title="edit">
+        <LinkButton to={`/app/categories/${category.id}`} title="edit">
           <PencilIcon className="heroIcon" />
         </LinkButton>
       </span>

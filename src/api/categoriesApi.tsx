@@ -60,7 +60,7 @@ export async function updateCategory(
   name: string,
   type: number
 ): Promise<void> {
-  await fetch(`${process.env.GATSBY_API_URL}categories/${categoryId}`, {
+  await fetch(`${process.env.GATSBY_API_URL}categories/${categoryId}/`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
